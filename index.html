@@ -271,22 +271,32 @@
     <section id="contacto">
         <h3 class="titulo-seccion">Contact me</h3>
         <div class="contenedor-form">
-            <form action="https://formsubmit.co/julian0877@hotmail.com" method="POST">
+            <form id="contact-form">
                 <div class="fila mitad">
                     <input type="text" name="name" placeholder="Full name" class="input-mitad" required>
                     <input type="email" name="email" placeholder="Email" class="input-mitad" required>
                 </div>
+    
                 <div class="fila">
-                    <input type="text" placeholder="Topic..." class="input-full">
+                    <input type="text" name="topic" placeholder="Topic..." class="input-full" required>
                 </div>
+    
                 <div class="fila">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Your message..." class="input-full"></textarea>
+                    <textarea name="message" cols="30" rows="10" placeholder="Your message..." class="input-full" required></textarea>
                 </div>
-
+    
+                <!-- hCaptcha -->
+                <div class="h-captcha" data-sitekey="151cce44-3b5a-4b7c-a4e0-3a0a48ee0904"></div>
+    
                 <input type="submit" value="Submit" class="btn-enviar">
             </form>
+    
+            <div id="form-result" style="margin-top:15px; color:#fff;"></div>
         </div>
     </section>
+    
+    <!-- Script de hCaptcha -->
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
 
     <!-- Footer section -->
     <footer>

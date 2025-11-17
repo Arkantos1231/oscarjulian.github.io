@@ -42,3 +42,32 @@ function efectoHabilidades(){
         document.getElementById("ps").classList.add("barra-progreso4");
     }
 }
+
+
+document.getElementById("contact-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    // Validar captcha
+    const captchaToken = hcaptcha.getResponse();
+    if (!captchaToken) {
+        document.querySelector("#form-result").innerHTML = "❗ Please complete the CAPTCHA.";
+        return;
+    }
+
+    const form = this;
+    const formData = new FormData(form);
+    formData.append("h-captcha-response", captchaToken);
+
+    const response = await fetch("https://formsubmit.co/ajax/julian0877@hotmail.com", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        document.querySelector("#form-result").innerHTML = "✅ Your message has been sent!";
+        form.reset();
+        hcaptcha.reset();
+    } else {
+        document.querySelector("#form-result").innerHTML = "❌ Error sending message. Try again later.";
+    }
+});
