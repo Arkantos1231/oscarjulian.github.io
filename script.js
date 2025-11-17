@@ -70,6 +70,5 @@ document.getElementById("contact-form").addEventListener("submit", async functio
         document.querySelector("#contact-form").style.display = "none";
     } else {
         document.querySelector("#form-result").innerHTML = "❌ Error sending message. Try again later.";
-        document.querySelector("#contact-form").style.display = "block";
     }
 });
